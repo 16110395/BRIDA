@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/brida.png">
+    <!-- Author Meta -->
+    <meta name="author" content="Badan Riset dan Inovasi Manggarai Barat">
+    <!-- Meta Description -->
+    <meta name="description" content="Daftar lengkap riset dan inovasi Kabupaten Manggarai Barat">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="riset, inovasi, penelitian, manggarai barat, brida">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Daftar Riset dan Inovasi | BRIDA Manggarai Barat</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Custom Styles */
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/muas2.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        
+        .innovation-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .innovation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .badge-category {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            margin-right: 5px;
+        }
+        
+        .filter-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .year-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .year-btn {
+            border-radius: 20px;
+        }
+        
+        .innovation-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        .detail-modal-img {
+            max-height: 300px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Start Header Area -->
+    <header class="default-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/BRIDA LOGO.png" width="250" alt="Logo BRIDA Manggarai Barat">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="generic.html">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="riset-inovasi.html">Riset & Inovasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="berita.html">Berita</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://ppid.manggaraibaratkab.go.id/" target="_blank">PPID</a></li>
+                    </ul>
+                </div>                        
+            </div>
+        </nav>
+    </header>
+    <!-- End Header Area -->
+    
+    <!-- Start Banner Area -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="text-white">Daftar Riset dan Inovasi</h1>
+                    <p class="text-white">Temukan berbagai penelitian dan terobosan inovatif dari Kabupaten Manggarai Barat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Filter Section -->
+        <section class="filter-section fade-in">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="searchInput">Cari Riset/Inovasi:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Masukkan kata kunci...">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="searchBtn">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="categoryFilter">Kategori:</label>
+                        <select class="form-control" id="categoryFilter">
+                            <option value="">Semua Kategori</option>
+                            <option value="teknologi">Teknologi</option>
+                            <option value="pertanian">Pertanian</option>
+                            <option value="pendidikan">Pendidikan</option>
+                            <option value="kesehatan">Kesehatan</option>
+                            <option value="lingkungan">Lingkungan</option>
+                            <option value="ekonomi">Ekonomi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Tahun:</label>
+                        <div class="year-filter">
+                            <button class="btn btn-outline-primary year-btn" data-year="all">Semua</button>
+                            <button class="btn btn-outline-primary year-btn" data-year="2025">2025</button>
+                            <button class="btn btn-outline-primary year-btn" data-year="2024">2024</button>
+                            <button class="btn btn-outline-primary year-btn" data-year="2023">2023</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Innovation Grid -->
+        <section class="innovation-grid fade-in">
+            <div class="row">
+                <!-- Innovation Item 1 -->
+                <div class="col-lg-4 col-md-6 innovation-item" data-category="teknologi" data-year="2025">
+                    <div class="card innovation-card">
+                        <img src="img/inovasi1.jpg" class="card-img-top innovation-img" alt="Sistem Informasi Geografis Pertanian">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <span class="badge badge-primary badge-category">Teknologi</span>
+                                <span class="badge badge-secondary badge-category">2025</span>
+                            </div>
+                            <h5 class="card-title">Sistem Informasi Geografis Pertanian</h5>
+                            <p class="card-text">Platform digital untuk memetakan potensi pertanian daerah dengan analisis real-time.</p>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#innovationModal1">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Innovation Item 2 -->
+                <div class="col-lg-4 col-md-6 innovation-item" data-category="pendidikan" data-year="2024">
+                    <div class="card innovation-card">
+                        <img src="img/inovasi2.jpg" class="card-img-top innovation-img" alt="Program Digitalisasi Sekolah">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <span class="badge badge-info badge-category">Pendidikan</span>
+                                <span class="badge badge-secondary badge-category">2024</span>
+                            </div>
+                            <h5 class="card-title">Program Digitalisasi Sekolah</h5>
+                            <p class="card-text">Transformasi pembelajaran berbasis teknologi di 50 sekolah percontohan.</p>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#innovationModal2">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Innovation Item 3 -->
+                <div class="col-lg-4 col-md-6 innovation-item" data-category="kesehatan" data-year="2024">
+                    <div class="card innovation-card">
+                        <img src="img/inovasi3.jpg" class="card-img-top innovation-img" alt="Aplikasi Kesehatan Masyarakat">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <span class="badge badge-danger badge-category">Kesehatan</span>
+                                <span class="badge badge-secondary badge-category">2024</span>
+                            </div>
+                            <h5 class="card-title">Aplikasi Kesehatan Masyarakat</h5>
+                            <p class="card-text">Sistem monitoring kesehatan berbasis mobile untuk daerah terpencil.</p>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#innovationModal3">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Innovation Item 4 -->
+                <div class="col-lg-4 col-md-6 innovation-item" data-category="pertanian" data-year="2023">
+                    <div class="card innovation-card">
+                        <img src="img/inovasi4.jpg" class="card-img-top innovation-img" alt="Teknologi Pengolahan Kopi">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <span class="badge badge-success badge-category">Pertanian</span>
+                                <span class="badge badge-secondary badge-category">2023</span>
+                            </div>
+                            <h5 class="card-title">Teknologi Pengolahan Kopi</h5>
+                            <p class="card-text">Inovasi pengolahan pasca panen kopi khas Manggarai Barat.</p>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#innovationModal4">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Innovation Item 5 -->
+                <div class="col-lg-4 col-md-6 innovation-item" data-category="lingkungan" data-year="2023">
+                    <div class="card innovation-card">
+                        <img src="img/inovasi5.jpg" class="card-img-top innovation-img" alt="Sistem Pengelolaan Sampah">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <span class="badge badge-warning badge-category">Lingkungan</span>
+                                <span class="badge badge-secondary badge-category">2023</span>
+                            </div>
+                            <h5 class="card-title">Sistem Pengelolaan Sampah</h5>
+                            <p class="card-text">Model pengelolaan sampah terpadu berbasis masyarakat.</p>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#innovationModal5">Detail</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Innovation Item 6 -->
+                <div class="col-lg-4 col-md-6 innovation-item" data-category="ekonomi" data-year="2025">
+                    <div class="card innovation-card">
+                        <img src="img/inovasi6.jpg" class="card-img-top innovation-img" alt="Platform E-Commerce Lokal">
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <span class="badge badge-dark badge-category">Ekonomi</span>
+                                <span class="badge badge-secondary badge-category">2025</span>
+                            </div>
+                            <h5 class="card-title">Platform E-Commerce Lokal</h5>
+                            <p class="card-text">Pasar digital untuk produk unggulan UMKM Manggarai Barat.</p>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#innovationModal6">Detail</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+
+    <!-- Innovation Modals -->
+    <!-- Modal 1 -->
+    <div class="modal fade" id="innovationModal1" tabindex="-1" role="dialog" aria-labelledby="innovationModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="innovationModal1Label">Sistem Informasi Geografis Pertanian</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/inovasi1.jpg" class="img-fluid detail-modal-img mb-3" alt="Sistem Informasi Geografis Pertanian">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="badge badge-primary">Teknologi</span>
+                                <span class="badge badge-secondary">2025</span>
+                                <span class="badge badge-info">OPD: Dinas Pertanian</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Deskripsi</h5>
+                            <p>Sistem ini memetakan potensi pertanian di seluruh wilayah Kabupaten Manggarai Barat dengan data real-time yang diperbarui setiap bulan. Memanfaatkan teknologi satelit dan IoT untuk monitoring lahan.</p>
+                            
+                            <h5 class="mt-4">Fitur Utama</h5>
+                            <ul>
+                                <li>Pemetaan lahan pertanian berbasis satelit</li>
+                                <li>Monitoring produksi tanaman</li>
+                                <li>Prediksi hasil panen dengan AI</li>
+                                <li>Analisis pasar komoditas</li>
+                                <li>Sistem peringatan dini hama</li>
+                            </ul>
+                            
+                            <h5 class="mt-4">Dokumen Terkait</h5>
+                            <div class="d-flex flex-wrap">
+                                <a href="#" class="btn btn-outline-primary btn-sm mr-2 mb-2">
+                                    <i class="fa fa-download"></i> Panduan Penggunaan
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm mr-2 mb-2">
+                                    <i class="fa fa-file-pdf-o"></i> Laporan Kajian
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm mr-2 mb-2">
+                                    <i class="fa fa-external-link"></i> Demo Aplikasi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <a href="#" class="btn btn-primary">Kunjungi Halaman Inovasi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="innovationModal2" tabindex="-1" role="dialog" aria-labelledby="innovationModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="innovationModal2Label">Program Digitalisasi Sekolah</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/inovasi2.jpg" class="img-fluid detail-modal-img mb-3" alt="Program Digitalisasi Sekolah">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="badge badge-info">Pendidikan</span>
+                                <span class="badge badge-secondary">2024</span>
+                                <span class="badge badge-info">OPD: Dinas Pendidikan</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Deskripsi</h5>
+                            <p>Program transformasi pembelajaran berbasis teknologi di 50 sekolah percontohan di Kabupaten Manggarai Barat. Meliputi penyediaan perangkat, pelatihan guru, dan platform pembelajaran digital.</p>
+                            
+                            <h5 class="mt-4">Fitur Utama</h5>
+                            <ul>
+                                <li>Penyediaan tablet pembelajaran</li>
+                                <li>Platform e-learning lokal</li>
+                                <li>Pelatihan guru berbasis digital</li>
+                                <li>Sistem monitoring pembelajaran</li>
+                                <li>Konten pembelajaran interaktif</li>
+                            </ul>
+                            
+                            <h5 class="mt-4">Dokumen Terkait</h5>
+                            <div class="d-flex flex-wrap">
+                                <a href="#" class="btn btn-outline-primary btn-sm mr-2 mb-2">
+                                    <i class="fa fa-download"></i> Panduan Program
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm mr-2 mb-2">
+                                    <i class="fa fa-file-pdf-o"></i> Laporan Evaluasi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <a href="#" class="btn btn-primary">Kunjungi Halaman Inovasi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add similar modals for other innovations (Modal 3-6) -->
+
+    <!-- Start footer Area -->        
+    <footer class="footer-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="single-footer-widget">
+                        <h6 class="text-center mb-3">Kontak Kami</h6>
+                        <ul class="footer-nav">
+                            <li><i class="fa fa-map-marker"></i> Jl. Soekarno-Hatta No.1, Labuan Bajo</li>
+                            <li><i class="fa fa-phone"></i> (0385) 1234567</li>
+                            <li><i class="fa fa-envelope"></i> info@brida-mabar.go.id</li>
+                        </ul>
+                    </div>
+					
+                </div>
+				<div class="col-lg-6 col-md-12">
+                    <h6 class="text-center mb-3">Lokasi Kami</h6>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.329578108833!2d119.8917117147846!3d-8.496153993782897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2db4643034efcaff%3A0x2b668f678b9be287!2sKantor%20Bupati%20Manggarai%20Barat!5e0!3m2!1sen!2sid!4v1624456789012!5m2!1sen!2sid" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>  
+                </div>
+             <div class="row footer-bottom d-flex justify-content-between align-items-center">
+                <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Badan Riset dan Inovasi Daerah Kabupaten Manggarai Barat |  </p>
+                <div class="col-lg-4 col-sm-12 footer-social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>                         
+            </div>
+            
+        </div>
+    </footer>
+    <!-- End footer Area -->        
+
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Filter functionality
+            $('#categoryFilter, #searchBtn, .year-btn').on('change click', function() {
+                const category = $('#categoryFilter').val();
+                const searchTerm = $('#searchInput').val().toLowerCase();
+                const year = $('.year-btn.active').data('year') || 'all';
+                
+                $('.innovation-item').each(function() {
+                    const itemCategory = $(this).data('category');
+                    const itemYear = $(this).data('year');
+                    const itemText = $(this).text().toLowerCase();
+                    
+                    const categoryMatch = category === '' || itemCategory === category;
+                    const searchMatch = searchTerm === '' || itemText.includes(searchTerm);
+                    const yearMatch = year === 'all' || itemYear == year;
+                    
+                    if (categoryMatch && searchMatch && yearMatch) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+            
+            // Year filter buttons
+            $('.year-btn').on('click', function() {
+                $('.year-btn').removeClass('active');
+                $(this).addClass('active');
+                $('#categoryFilter').trigger('change');
+            });
+            
+            // Fade-in animation
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            function checkElements() {
+                $('.fade-in').each(function() {
+                    if (isInViewport(this)) {
+                        $(this).addClass('active');
+                    }
+                });
+            }
+            
+            checkElements();
+            $(window).on('scroll resize', checkElements);
+        });
+    </script>
+</body>
+</html>
